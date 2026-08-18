@@ -1,0 +1,8 @@
+{
+  "info": {
+    "name": "JobShield API",
+    "description": "Phase 1 placeholder collection. Endpoints will be added during implementation.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": []
+}

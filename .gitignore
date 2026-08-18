@@ -1,0 +1,27 @@
+# Node
+node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+backend/.env
+*.sqlite3
+*.db
+
+# ML generated files
+ml/model/
+ml/data/generated/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
