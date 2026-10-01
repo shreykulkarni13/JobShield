@@ -1,15 +1,15 @@
-# JobShield ML/NLP
+# JobShield detection engine
 
-This directory will contain the planned AI/NLP detection engine.
+The current prototype detection rules live in `backend/app/detector.py` so the Flask API can return risk signals and explanations in one request. They are hand-authored heuristics, not an ML model.
 
-Planned work:
+## Future model work
 
-1. Collect representative legitimate/scam examples.
-2. Preprocess text.
-3. Extract NLP features.
-4. Train a baseline scikit-learn classifier.
-5. Add complementary scam-pattern rules.
-6. Combine signals into a risk assessment.
-7. Produce human-readable explanations.
+Before training a scikit-learn classifier:
 
-No production model is claimed at Phase 1.
+1. Collect and document a representative dataset of legitimate and fraudulent postings.
+2. Record source, labeling method, consent, and any personal-data removal.
+3. Split by source or time as well as randomly to reduce leakage.
+4. Compare a transparent TF-IDF baseline with the current rules and report precision, recall, false-positive rates, and class balance.
+5. Keep safety guidance and explanations visible; do not label a posting legitimate solely because the model score is low.
+
+No training dataset or validated model is included in this prototype.

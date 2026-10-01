@@ -1,8 +1,44 @@
 {
   "info": {
     "name": "JobShield API",
-    "description": "Phase 1 placeholder collection. Endpoints will be added during implementation.",
+    "description": "Local prototype API. Set baseUrl to the Flask API origin.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
-  "item": []
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000" },
+    { "key": "scanId", "value": "1" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/health" }
+    },
+    {
+      "name": "Analyze a posting",
+      "event": [{ "listen": "test", "script": { "exec": ["if (pm.response.code === 201) pm.collectionVariables.set('scanId', pm.response.json().id);"], "type": "text/javascript" } }],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"text\": \"Remote assistant wanted. Earn $4500 per week, no experience needed. Pay a $45 registration fee today and message our recruiter on Telegram.\"\n}", "options": { "raw": { "language": "json" } } },
+        "url": "{{baseUrl}}/api/analyze"
+      }
+    },
+    {
+      "name": "Recent history",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/history" }
+    },
+    {
+      "name": "Submit feedback",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"scan_id\": {{scanId}},\n  \"value\": \"helpful\"\n}", "options": { "raw": { "language": "json" } } },
+        "url": "{{baseUrl}}/api/feedback"
+      }
+    },
+    {
+      "name": "Clear local history",
+      "request": { "method": "DELETE", "url": "{{baseUrl}}/api/history" }
+    }
+  ]
 }

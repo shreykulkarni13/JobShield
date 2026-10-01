@@ -1,5 +1,2 @@
-Flask
-Flask-Cors
-Flask-JWT-Extended
-Flask-SQLAlchemy
-scikit-learn
+Flask>=3.0,<4.0
+Flask-Cors>=4.0,<6.0

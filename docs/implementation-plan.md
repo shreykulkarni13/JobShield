@@ -1,31 +1,18 @@
-# JobShield — Implementation Plan
+# Implementation Plan
 
-1. Research
-   - Identify scam patterns.
-   - Prepare representative legitimate/scam examples.
+## Prototype delivered
 
-2. Detection Engine
-   - Implement preprocessing.
-   - Implement feature extraction.
-   - Build baseline classification.
-   - Add complementary rules.
+- React scanner with responsive workspace and assessment view
+- Flask endpoints for health, analysis, scan history, history deletion, and feedback
+- Explainable Python text rules for common recruitment scam indicators
+- SQLite storage for scan text, risk results, timestamps, and feedback
+- Postman requests for the available API routes
 
-3. Risk & Explainability
-   - Combine detection signals.
-   - Produce a clear risk score.
-   - Generate human-readable reasons.
+## Next engineering work
 
-4. Application
-   - Build Flask APIs.
-   - Add SQLite database.
-   - Build scanner UI.
-   - Build dashboard.
-
-5. Validation
-   - Test false positives and false negatives.
-   - Test usability.
-   - Test security.
-
-6. Deployment
-   - Deploy the working prototype.
-   - Prepare demo scenarios.
+1. Collect and document a representative, privacy-reviewed set of legitimate and scam postings.
+2. Evaluate the existing rules, including false positive and false negative cases.
+3. Build and compare a scikit-learn/NLP baseline against the rules and document performance.
+4. Add JWT authentication and scope scan history and feedback to an account.
+5. Add retention controls, production database configuration, and deployment for the Flask API and React frontend.
+6. Validate accessibility, usability, and security before handling real user data.

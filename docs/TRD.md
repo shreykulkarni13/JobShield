@@ -1,37 +1,29 @@
-# JobShield — TRD
+# JobShield Technical Requirements
 
-## Technology
+## Implemented prototype stack
 
 ### Frontend
-React + JavaScript
 
-### Backend
-Python + Flask
+React and JavaScript, served during development with Vite. The interface supports text entry, an explainable assessment, a recent scan list, and feedback.
 
-### AI/NLP
-Python + scikit-learn / NLP libraries
+### API and detection
 
-### Database
-SQLite
+Python and Flask expose JSON endpoints. A hand-authored Python rule engine identifies common warning signs and returns a capped risk score, category, explanations, and verification guidance.
 
-### Authentication
-JWT
+### Persistence
 
-### Development & Testing
-Git + GitHub + Postman
+SQLite stores scan text, result, timestamp, and feedback. The default database is `backend/instance/jobshield.db` and can be changed with `JOBSHIELD_DATABASE`.
 
-### Deployment
-Vercel is the deployment target stated in the Phase 1 proposal.
+### Development tools
 
-## Planned Architecture
+Git, GitHub, and the Postman collection support development and API exploration.
 
-React frontend
-→ Flask REST API
-→ Python detection engine
-→ SQLite database
+## Planned production capabilities
 
-The detection engine will use preprocessing, feature extraction, baseline classification and complementary rules.
+- JWT authentication and user-owned scan history
+- A representative, reviewed dataset and a measured scikit-learn/NLP baseline
+- Model and rule evaluation for false positives, false negatives, and class imbalance
+- Production database, retention controls, deployment configuration, and security review
+- A separately hosted Flask API and persistent database alongside the proposed Vercel frontend
 
-## Phase 1
-
-Only the repository structure and technical documentation are included at this stage.
+These production capabilities are not present in the current prototype. See [architecture.md](architecture.md) for boundaries and request flow.

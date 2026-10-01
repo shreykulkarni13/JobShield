@@ -1,27 +1,28 @@
-# JobShield — PRD
+# JobShield Product Requirements
 
 ## Problem
 
-Fake job postings and recruitment scams can imitate legitimate opportunities and trick job seekers into paying fees, sharing personal information, or clicking suspicious links.
+Fake job postings and recruitment scams can imitate legitimate opportunities and trick job seekers into paying fees, sharing personal information, or clicking suspicious links. Users need a quick first review and clear ways to check details themselves.
 
-## Proposed Solution
+## Product
 
-JobShield is a web-based risk analyser. A user pastes a job posting or recruiter message; the system analyses textual and contextual scam signals, produces a risk score, and explains the reasons behind the assessment.
+JobShield lets a user paste a job description or recruiter message and receive an explainable review. It shows a risk category and score, highlights matching warning signs, gives practical verification steps, and keeps recent scans available in a local history.
 
-## Key Features
+## Core user flow
 
-- Risk Scanner
-- Explainable Risk Score
-- Scam Indicators
-- Safety Guidance
-- History & Feedback
+1. Paste the posting or recruiter message into the scanner.
+2. Review the risk category, score, and each detected signal.
+3. Follow independent verification steps before responding or sharing information.
+4. Optionally leave feedback or revisit the scan from history.
 
-## Core Risk Categories
+## Risk categories
 
-- Safe
+- Lower risk
 - Suspicious
-- High Risk
+- High risk
 
-## Phase 1 Scope
+These labels describe only the prototype's text signals. A lower-risk result does not confirm that an employer or opening is genuine.
 
-This document describes the planned product. It does not claim that the implementation is complete in Phase 1.
+## Prototype scope
+
+The current prototype includes the scanner interface, Python rule engine, Flask API, SQLite scan history, and feedback endpoint. It does not include user accounts, JWT authentication, a validated ML classifier, or external company verification. Scans are retained in the local prototype database; use sample or non-sensitive text.
